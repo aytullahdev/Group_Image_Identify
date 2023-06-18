@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-2 my-20 lg:mx-5">
+  <div class="ml-5 lg:ml-10 space-y-10">
+    <h1 class="text-3xl lg:text-6xl font-bold text-blue-500">Group Image Detector</h1>
+    <p class="text-xl lg:text-4xl lg:py-5 italic font-semibold">
+      "Analyzing Group Images: Identifying Individuals"
+    </p>
+    <button
+      href="{{url_for('predict')}}"
+      class="px-5 py-2 text-center bg-blue-500 font-bold text-white text-xl block rounded"
+    >
+      Get Started
+    </button>
+  </div>
+  <div class="flex justify-center items-center">
+    <img src="https://media.tenor.com/CigpzapemsoAAAAi/hi-robot.gif" />
+  </div>
+</div>
+<div>
+  <h1 class="text-center font-bold text-5xl my-10">How We Use It?</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-20 my-10 lg:mx-10 items-center justify-center">
+    <div>
+      <img
+        src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/collect.svg"
+        alt=""
+        class="w-100 h-60"
+      />
+      <div class="flex space-x-5 text-2xl font-semibold my-5">
+        <p class="font-bold">1</p>
+        <p class="text-lg">
+          Gather Gather and group your examples into classes, or categories,
+          that you want the computer to learn.
+        </p>
+      </div>
+    </div>
+    <div>
+      <img
+        src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/train.svg"
+        alt=""
+        class="w-100"
+      />
+      <div class="flex space-x-5 text-2xl font-semibold my-5">
+        <p class="font-bold">2</p>
+        <p class="text-lg">
+          Train your model, then instantly test it out to see whether it can
+          correctly classify new examples.
+        </p>
+      </div>
+      </div>
+      <div>
+        <img
+          src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/export.svg"
+          alt=""
+          class="w-100 h-60"
+        />
+        <div class="flex space-x-5 text-2xl font-semibold my-5">
+          <p class="font-bold">3</p>
+          <p class="text-lg">
+            Export your model for your projects: sites, apps, and more. You can
+            download your model or host it online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

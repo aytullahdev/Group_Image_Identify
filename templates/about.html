@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1 class="text-center font-bold text-5xl my-10">About Us</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-20 my-10 lg:mx-10 items-center justify-center">
+    <div>
+      <img
+        src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/collect.svg"
+        alt=""
+        class="w-100 h-60"
+      />
+      <div class="flex space-x-5 text-2xl font-semibold my-5">
+        <p class="font-bold">1</p>
+        <p class="text-lg">
+          Gather Gather and group your examples into classes, or categories,
+          that you want the computer to learn.
+        </p>
+      </div>
+    </div>
+    <div>
+      <img
+        src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/train.svg"
+        alt=""
+        class="w-100"
+      />
+      <div class="flex space-x-5 text-2xl font-semibold my-5">
+        <p class="font-bold">2</p>
+        <p class="text-lg">
+          Train your model, then instantly test it out to see whether it can
+          correctly classify new examples.
+        </p>
+      </div>
+      </div>
+      <div>
+        <img
+          src="https://teachablemachine.withgoogle.com/assets/img/contentpage/home/export.svg"
+          alt=""
+          class="w-100 h-60"
+        />
+        <div class="flex space-x-5 text-2xl font-semibold my-5">
+          <p class="font-bold">3</p>
+          <p class="text-lg">
+            Export your model for your projects: sites, apps, and more. You can
+            download your model or host it online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

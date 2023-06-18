@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1 class="text-center text-xl uppercase my-10">identify Individual</h1>
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <form
+        action="/predict"
+        class="grid grid-cols-1 gap-10"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% if input %}
+        <img src="/static/groupimg.jpeg" alt="" />
+        {% endif %}
+        <input type="file" name="groupimg" id="groupimg" />
+        <div>
+          <button
+            class="px-10 mx-auto block py-2 bg-blue-500 text-white rounded"
+          >
+            Identify
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      {% if output %}
+      <img src="/static/result.jpeg" alt="" />
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock%}
