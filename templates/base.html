@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -31,4 +32,42 @@
     </div>
     {% block content%} {% endblock %}
   </body>
+  <!-- <script>
+    $(document).ready(function () {
+      $("form").on("submit", function (event) {
+        event.preventDefault();
+
+        var formData = new FormData($("form")[0]);
+
+        $.ajax({
+          xhr: function () {
+            var xhr = new window.XMLHttpRequest();
+
+            xhr.upload.addEventListener("progress", function (e) {
+              if (e.lengthComputable) {
+                console.log("Bytes Loaded: " + e.loaded);
+                console.log("Total Size: " + e.total);
+                console.log("Percentage Uploaded: " + e.loaded / e.total);
+
+                var percent = Math.round((e.loaded / e.total) * 100);
+
+                $("#progressBar")
+                  .attr("aria-valuenow", percent)
+                  .css("width", percent + "%")
+                  .text(percent + "%");
+              }
+            });
+
+            return xhr;
+          },
+          type: "POST",
+          url: "/predict",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (data) {},
+        });
+      });
+    });
+  </script> -->
 </html>
