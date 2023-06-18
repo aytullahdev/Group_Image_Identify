@@ -32,9 +32,11 @@
     </div>
     {% block content%} {% endblock %}
   </body>
-  <!-- <script>
+  <script>
     $(document).ready(function () {
+      $("#msg").hide();
       $("form").on("submit", function (event) {
+        $(".progress-bar").show();
         event.preventDefault();
 
         var formData = new FormData($("form")[0]);
@@ -51,10 +53,7 @@
 
                 var percent = Math.round((e.loaded / e.total) * 100);
 
-                $("#progressBar")
-                  .attr("aria-valuenow", percent)
-                  .css("width", percent + "%")
-                  .text(percent + "%");
+                $(".progress").css("width", `${percent}%`);
               }
             });
 
@@ -65,9 +64,24 @@
           data: formData,
           processData: false,
           contentType: false,
-          success: function (data) {},
+          success: function (data) {
+            $("#input").attr("src", data.input);
+            $("#output").attr("src", data.output);
+            $("#msg").attr("src", data.msg);
+
+            $(".progress").css("width", "0%");
+            $(".progress-bar").hide();
+            $("#msg").hide();
+            if (data.msg) {
+              $("#msg").text(data.msg);
+              $("#msg").show();
+            }
+          },
+          error: function (xhr, status, error) {
+            $(".progress-bar").hide();
+          },
         });
       });
     });
-  </script> -->
+  </script>
 </html>

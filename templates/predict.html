@@ -1,14 +1,28 @@
 {% extends 'base.html' %} {% block content %}
+<style>
+  .progress-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
 
+  .progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.5s ease-in-out;
+  }
+</style>
 <div>
   <h1 class="text-center text-xl uppercase my-10">identify Individual</h1>
-  {% if msg %}
+
   <div
+    id="msg"
     class="text-center py-2 text-md w-2/3 mx-auto auto block bg-red-500 text-white my-10"
-  >
-    {{msg}}
-  </div>
-  {% endif %}
+  ></div>
+
   <div class="grid grid-cols-2 gap-10">
     <div>
       <form
@@ -17,9 +31,13 @@
         method="post"
         enctype="multipart/form-data"
       >
-        {% if input %}
+        <!-- {% if input %}
         <img src="/static/groupimg.jpeg" alt="" />
-        {% endif %}
+        {% endif %} -->
+        <img src="" id="input" alt="" />
+        <div class="progress-bar" hidden>
+          <div class="progress"></div>
+        </div>
         <input type="file" name="groupimg" id="groupimg" />
         <div>
           <button
@@ -31,9 +49,7 @@
       </form>
     </div>
     <div>
-      {% if output %}
-      <img src="/static/result.jpeg" alt="" />
-      {% endif %}
+      <img src="" id="output" alt="" />
     </div>
   </div>
 </div>

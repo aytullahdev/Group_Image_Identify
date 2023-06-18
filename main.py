@@ -1,5 +1,5 @@
 
-from flask import Flask
+from flask import Flask, jsonify
 from model import predict_group_img
 from flask import request
 from flask import render_template
@@ -21,11 +21,13 @@ def predict():
         image.save("./static/groupimg.jpeg")
         res = predict_group_img("./static/groupimg.jpeg")
         if res:
-            return render_template('predict.html', input=input, output=output)
+            # return render_template('predict.html', input=input, output=output)
+            return jsonify({'input': input, 'output': output})
+
         else:
-            return render_template('predict.html', msg="Some Error Plsease Try Again")
+            return jsonify({'msg': "Please Try Again"})
     else:
-        return render_template('predict.html', msg="Some Error Plsease Try Again")
+        return render_template('predict.html')
 
 
 @app.route("/about")
