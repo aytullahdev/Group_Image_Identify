@@ -34,6 +34,8 @@
   </body>
   <script>
     $(document).ready(function () {
+      $("#identify").show();
+      $("#reset").hide();
       $("#msg").hide();
       $("form").on("submit", function (event) {
         $(".progress-bar").show();
@@ -47,9 +49,9 @@
 
             xhr.upload.addEventListener("progress", function (e) {
               if (e.lengthComputable) {
-                console.log("Bytes Loaded: " + e.loaded);
-                console.log("Total Size: " + e.total);
-                console.log("Percentage Uploaded: " + e.loaded / e.total);
+                // console.log("Bytes Loaded: " + e.loaded);
+                // console.log("Total Size: " + e.total);
+                // console.log("Percentage Uploaded: " + e.loaded / e.total);
 
                 var percent = Math.round((e.loaded / e.total) * 100);
 
@@ -65,10 +67,10 @@
           processData: false,
           contentType: false,
           success: function (data) {
-            $("#input").attr("src", data.input);
-            $("#output").attr("src", data.output);
-            $("#msg").attr("src", data.msg);
-
+            if (data.input && data.output) {
+              $("#input").attr("src", data.input);
+              $("#output").attr("src", data.output);
+            }
             $(".progress").css("width", "0%");
             $(".progress-bar").hide();
             $("#msg").hide();
@@ -76,6 +78,9 @@
               $("#msg").text(data.msg);
               $("#msg").show();
             }
+            $("#identify").hide();
+            $("#groupimg").hide();
+            $("#reset").show();
           },
           error: function (xhr, status, error) {
             $(".progress-bar").hide();
